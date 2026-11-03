@@ -1,0 +1,22 @@
+module.exports = [
+  {
+    "origin": "KUL",
+    "destination": "CGK",
+    "trip_type": "round_trip",
+    "flight_date": "2026-11-10",
+    "return_date": "2026-11-12",
+    "weekday": "Tuesday",
+    "is_weekend": false,
+    "airline": "Indonesia AirAsia",
+    "price": 563,
+    "currency": "MYR",
+    "baggage": "unknown",
+    "is_holiday": null,
+    "source": "Expedia Malaysia",
+    "source_observation_type": "public round-trip fare listing",
+    "source_url": "https://www.expedia.com.my/lp/flights/kul/cgk/kuala-lumpur-to-jakarta",
+    "collected_at": "2026-10-26",
+    "days_before_departure": 15,
+    "price_basis": "per traveller, return total"
+  }
+]

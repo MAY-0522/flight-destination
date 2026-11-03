@@ -1,0 +1,452 @@
+<view class="page">
+
+<!-- ================================
+     顶部导航
+     ================================ -->
+
+<view class="nav-bar">
+
+  <view
+    class="nav-back"
+    bindtap="modifySearch"
+  >
+    ‹
+  </view>
+
+  <view class="nav-title">
+    发现目的地
+  </view>
+
+  <view class="nav-placeholder"></view>
+
+</view>
+
+
+<!-- ================================
+     页面内容
+     ================================ -->
+
+<scroll-view
+  class="result-scroll"
+  scroll-y="true"
+  enhanced="true"
+>
+
+  <!-- ==============================
+       刷新状态提示
+       ============================== -->
+
+  <view
+    wx:if="{{refreshStatus === 'PARTIAL_SUCCESS'}}"
+    class="refresh-warning"
+  >
+
+    <view class="refresh-warning-title">
+      ⚠ 部分价格更新失败
+    </view>
+
+    <view class="refresh-warning-text">
+      成功获取的新价格已经更新，失败目的地仍显示上次成功查询的价格。
+    </view>
+
+    <view class="refresh-warning-list">
+
+      <block
+        wx:for="{{refreshFailedDestinations}}"
+        wx:key="id"
+      >
+
+        <view class="refresh-failed-tag">
+          {{item.destination}}
+        </view>
+
+      </block>
+
+    </view>
+
+  </view>
+
+
+  <view
+    wx:if="{{refreshStatus === 'ALL_FAILED'}}"
+    class="refresh-warning error"
+  >
+
+    <view class="refresh-warning-title">
+      ⚠ 刷新失败
+    </view>
+
+    <view class="refresh-warning-text">
+      {{refreshErrorMessage}}
+    </view>
+
+  </view>
+
+
+  <view
+    wx:if="{{refreshStatus === 'TIMEOUT'}}"
+    class="refresh-warning error"
+  >
+
+    <view class="refresh-warning-title">
+      ⚠ 刷新超时
+    </view>
+
+    <view class="refresh-warning-text">
+      {{refreshErrorMessage}}
+    </view>
+
+  </view>
+
+
+  <!-- ==============================
+       正常结果
+       ============================== -->
+
+  <block wx:if="{{results.length > 0}}">
+
+    <!-- 标题 -->
+
+    <view class="result-header">
+
+      <view class="result-title">
+        找到 {{results.length}} 个适合你的目的地
+      </view>
+
+      <view class="result-subtitle">
+        已按照机票价格从低到高排序
+      </view>
+
+    </view>
+
+
+    <!-- ============================
+         搜索摘要
+         ============================ -->
+
+    <view class="summary-card">
+
+      <view class="summary-route">
+
+        <view class="summary-origin">
+
+          <view class="summary-city">
+            吉隆坡
+          </view>
+
+          <view class="summary-airport">
+            KUL
+          </view>
+
+        </view>
+
+        <view class="summary-arrow">
+          →
+        </view>
+
+        <view class="summary-destination">
+          多个目的地
+        </view>
+
+      </view>
+
+
+      <view class="summary-info">
+
+        <view class="summary-item">
+
+          <view class="summary-label">
+            出发日期
+          </view>
+
+          <view class="summary-value">
+            {{searchSummary.departureDate}}
+          </view>
+
+        </view>
+
+
+        <view class="summary-item">
+
+          <view class="summary-label">
+            预算
+          </view>
+
+          <view class="summary-value">
+            {{searchSummary.budgetText}}
+          </view>
+
+        </view>
+
+      </view>
+
+    </view>
+
+
+    <!-- ============================
+         更新时间
+         ============================ -->
+
+    <view
+      wx:if="{{lastUpdatedAt}}"
+      class="last-updated"
+    >
+
+      <view class="last-updated-dot"></view>
+
+      <view>
+        价格更新于 {{lastUpdatedAt}}
+      </view>
+
+    </view>
+
+
+    <!-- ============================
+         筛选标签
+         ============================ -->
+
+    <view class="filter-tags">
+
+      <view class="filter-tag">
+        公开网页报价
+      </view>
+
+      <view
+        wx:if="{{searchSummary.tripType === 'round'}}"
+        class="filter-tag"
+      >
+        {{searchSummary.minDuration}}
+        -
+        {{searchSummary.maxDuration}}
+        天
+      </view>
+
+      <view class="filter-tag">
+        价格从低到高
+      </view>
+
+    </view>
+
+
+    <!-- ============================
+         排除目的地
+         ============================ -->
+
+    <view
+      wx:if="{{searchSummary.hasExcludedDestinations}}"
+      class="excluded-summary"
+    >
+
+      <view class="excluded-summary-title">
+        排除目的地
+      </view>
+
+      <view class="excluded-summary-list">
+
+        <block
+          wx:for="{{searchSummary.excludedDestinations}}"
+          wx:key="*this"
+        >
+
+          <view class="excluded-summary-tag">
+            {{item}}
+          </view>
+
+        </block>
+
+      </view>
+
+    </view>
+
+
+    <!-- ============================
+         结果列表
+         ============================ -->
+
+    <view class="result-list">
+
+      <block
+        wx:for="{{results}}"
+        wx:key="id"
+      >
+
+        <view class="result-card">
+
+          <!-- 目的地 -->
+
+          <view class="destination-header">
+
+            <view class="destination-image">
+              ✈
+            </view>
+
+            <view class="destination-info">
+
+              <view class="destination-name">
+                {{item.destination}}
+              </view>
+
+              <view class="destination-country">
+                {{item.country}}
+                ·
+                {{item.airport}}
+              </view>
+
+            </view>
+
+
+            <!-- 价格 -->
+
+            <view class="price-area">
+
+              <view class="price-label">
+                往返
+              </view>
+
+              <view class="price">
+                ¥{{item.price}}
+              </view>
+
+              <view
+                wx:if="{{index === 0}}"
+                class="lowest-price"
+              >
+                最低价
+              </view>
+
+            </view>
+
+          </view>
+
+
+          <!-- 航班信息 -->
+
+          <view class="flight-info">
+
+            <view class="flight-section">
+
+              <view class="flight-label">
+                去程
+              </view>
+
+              <view class="flight-route">
+                {{item.outbound}}
+              </view>
+
+            </view>
+
+
+            <view class="flight-section">
+
+              <view class="flight-label">
+                回程
+              </view>
+
+              <view class="flight-route">
+                {{item.inbound}}
+              </view>
+
+            </view>
+
+          </view>
+
+
+          <!-- 航空公司 -->
+
+          <view class="airline-info">
+
+            <view class="airline-name">
+              {{item.airline}}
+            </view>
+
+            <view class="trip-duration">
+              {{item.tripDuration}}天
+            </view>
+
+          </view>
+
+
+          <!-- 底部 -->
+
+          <view class="result-footer">
+
+            <view class="update-time">
+              更新于 {{item.updatedAt}}
+            </view>
+
+            <view class="source">
+              {{item.source}}
+            </view>
+
+          </view>
+
+        </view>
+
+      </block>
+
+    </view>
+
+  </block>
+
+
+  <!-- ==============================
+       无结果
+       ============================== -->
+
+  <block wx:else>
+
+    <view class="empty-state">
+
+      <view class="empty-icon">
+        ✈
+      </view>
+
+      <view class="empty-title">
+        暂时没有找到符合条件的目的地
+      </view>
+
+      <view class="empty-description">
+        可以尝试提高预算、调整旅行天数，或者减少排除的目的地。
+      </view>
+
+      <view
+        class="empty-button"
+        bindtap="modifySearch"
+      >
+        修改条件
+      </view>
+
+    </view>
+
+  </block>
+
+</scroll-view>
+
+
+<!-- ================================
+     底部操作栏
+     ================================ -->
+
+<view
+  wx:if="{{results.length > 0}}"
+  class="bottom-action-bar"
+>
+
+  <view
+    class="bottom-button secondary {{loading ? 'disabled' : ''}}"
+    bindtap="modifySearch"
+  >
+    修改条件
+  </view>
+
+
+  <view
+    class="bottom-button primary {{loading ? 'disabled' : ''}}"
+    bindtap="refreshResults"
+  >
+    {{loading ? '正在更新...' : '刷新价格'}}
+  </view>
+
+</view>
+
+</view>

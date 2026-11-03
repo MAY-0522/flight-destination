@@ -1,0 +1,109 @@
+<view class="page">
+  <view class="top-bar">
+    <view class="brand">
+      <view class="brand-icon"><image class="brand-logo" style="width:72rpx;height:72rpx;display:block;" src="../../assets/may-logo.png" mode="aspectFill" /></view>
+      <text class="brand-name">MAY去哪啊</text>
+    </view>
+    <view class="top-controls">
+      <view class="currency-switch" bindtap="selectCurrency"><text class="currency-icon">{{currencySymbol}}</text><text>{{displayCurrency}}</text><view class="currency-arrow"></view></view>
+      <view class="language-switch">
+        <view class="language-option {{language === 'en' ? 'language-option-active' : ''}}" data-language="en" bindtap="selectLanguage">{{isEnglish ? 'English' : '英语'}}</view>
+        <view class="language-option {{language === 'zh' ? 'language-option-active' : ''}}" data-language="zh" bindtap="selectLanguage">{{isEnglish ? 'Chinese' : '简体中文'}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="hero">
+    <text class="hero-kicker">FLIGHT PRICE INTELLIGENCE</text>
+    <text class="hero-title">{{isEnglish ? 'Understand Flight Price Trends' : '了解航线价格规律'}}</text>
+    <text class="hero-description">{{isEnglish ? 'See when fares on this route are usually higher or more affordable.' : '看看这条航线通常什么时候贵、什么时候相对划算。'}}</text>
+  </view>
+
+  <view class="search-card">
+    <view class="field trip-type-field">
+      <text class="field-title">{{isEnglish ? 'Trip type' : '行程类型'}}</text>
+      <view class="trip-type-switch">
+        <view class="trip-type-option {{tripType === 'one_way' ? 'trip-type-option-active' : ''}}" data-trip-type="one_way" bindtap="selectTripType">{{isEnglish ? 'One way' : '单程'}}</view>
+        <view class="trip-type-option {{tripType === 'round_trip' ? 'trip-type-option-active' : ''}}" data-trip-type="round_trip" bindtap="selectTripType">{{isEnglish ? 'Round trip' : '往返'}}</view>
+      </view>
+    </view>
+
+    <view class="field">
+      <text class="field-title">{{isEnglish ? 'From' : '出发地'}}</text>
+      <view class="route-field fixed-origin">
+        <view class="airport-icon">{{isEnglish ? 'From' : '出'}}</view>
+        <view class="route-copy">
+          <text class="route-city">{{originLabel}}</text>
+      <text class="route-detail">{{originCode}} · Kuala Lumpur International Airport</text>
+        </view>
+        <text class="fixed-tag">{{isEnglish ? 'Fixed' : '固定'}}</text>
+      </view>
+    </view>
+
+    <view class="route-divider"><view></view><text>{{isEnglish ? 'ROUTE' : '航线'}}</text><view></view></view>
+
+    <view class="field destination-field">
+      <text class="field-title">{{isEnglish ? 'To' : '目的地'}}</text>
+      <view class="route-field destination-picker-trigger" bindtap="openDestinationPicker">
+        <view class="airport-icon destination-icon">{{isEnglish ? 'To' : '到'}}</view>
+        <view class="route-copy">
+          <text class="route-city">{{destinationLabel}}</text>
+          <text class="route-detail">{{destinationCode}} · {{destinations[destinationIndex].detail}}</text>
+        </view>
+        <text class="picker-arrow">⌄</text>
+      </view>
+    </view>
+
+    <button class="primary-button" bindtap="viewAnalysis"><text class="button-label">{{isEnglish ? 'View fare trends' : '查看价格规律'}}</text><text class="button-arrow">→</text></button>
+  </view>
+
+  <view class="pool-heading"><text>{{isEnglish ? 'Popular Southeast Asian destinations' : '东南亚热门目的地'}}</text><text>{{isEnglish ? 'Top 10 by sample size' : '样本量前 10'}}</text></view>
+  <view class="destination-grid">
+    <view class="destination-tile {{item.code === destinationCode ? 'destination-tile-active' : ''}}" wx:for="{{topDestinations}}" wx:key="code" data-code="{{item.code}}" hover-class="destination-tile-pressed" bindtap="selectDestination">
+      <view class="destination-tile-top"><text class="destination-tile-name">{{item.label}}</text><text class="destination-tile-code">{{item.code}}</text></view>
+      <text class="destination-tile-country">{{item.country}}</text>
+      <text class="destination-tile-status {{item.hasAnalysis ? 'destination-ready' : ''}}">{{item.sampleCount}} {{isEnglish ? (tripType === 'round_trip' ? 'round-trip' : 'one-way') + ' samples' : '条' + (tripType === 'round_trip' ? '往返' : '单程') + '样本'}}</text>
+    </view>
+  </view>
+
+  <view class="section-title">{{isEnglish ? 'What this analysis shows' : '这份分析会告诉你'}}</view>
+  <view class="feature-card">
+    <view class="feature-row"><view class="feature-icon">↗</view><view><text class="feature-name">{{isEnglish ? 'Departure weekday' : '出发星期'}}</text><text class="feature-copy">{{isEnglish ? 'Compare fares by departure day' : '比较一周中不同出发日的价格差异'}}</text></view></view>
+    <view class="feature-row"><view class="feature-icon">％</view><view><text class="feature-name">{{isEnglish ? 'Weekend effect' : '周末影响'}}</text><text class="feature-copy">{{isEnglish ? 'Compare average weekend and weekday fares' : '观察周末与工作日的平均价格差距'}}</text></view></view>
+    <view class="feature-row"><view class="feature-icon">◷</view><view><text class="feature-name">{{isEnglish ? 'Fare range' : '价格区间'}}</text><text class="feature-copy">{{isEnglish ? 'Explore sample distribution and booking lead time' : '查看样本分布与提前购买区间'}}</text></view></view>
+  </view>
+
+  <view class="footer">{{isEnglish ? 'Based on publicly listed fare samples. Live flight search and booking are not available.' : '基于公开页面价格样本进行统计，不提供实时机票搜索或订票。'}}</view>
+
+  <view class="public-fares-section">
+    <view class="public-fares-heading">{{isEnglish ? 'Latest public-page fares' : '最新公开网页报价'}} <text>{{isEnglish ? 'Daily job · Beijing 00:00' : '每日任务 · 北京时间零点'}}</text></view>
+    <view class="public-fares-card">
+      <view wx:if="{{collectorStatusLabel}}" class="public-fares-status">{{collectorStatusLabel}}</view>
+    </view>
+  </view>
+
+  <view class="destination-picker-mask" wx:if="{{showDestinationPicker}}" catchtap="closeDestinationPicker">
+    <view class="destination-picker-panel" catchtap="stopPickerTap">
+      <view class="destination-picker-header">
+        <text class="destination-picker-cancel" bindtap="closeDestinationPicker">{{pickerCancel}}</text>
+        <text class="destination-picker-title">{{pickerTitle}}</text>
+        <text class="destination-picker-confirm" bindtap="confirmDestinationPicker">{{pickerConfirm}}</text>
+      </view>
+      <view class="destination-search-box">
+        <text class="destination-search-icon">⌕</text>
+        <input class="destination-search-input" value="{{destinationSearchKeyword}}" placeholder="{{searchPlaceholder}}" confirm-type="search" bindinput="onDestinationSearchInput" />
+        <text wx:if="{{destinationSearchKeyword}}" class="destination-search-clear" bindtap="clearDestinationSearch">×</text>
+      </view>
+      <scroll-view class="destination-picker-list" scroll-y="true" show-scrollbar="false">
+        <block wx:for="{{destinationGroups}}" wx:for-item="letterGroup" wx:key="initial">
+          <view class="destination-letter">{{letterGroup.initial}}</view>
+          <view class="destination-option {{pendingDestinationCode === candidate.code ? 'destination-option-selected' : ''}}" wx:for="{{letterGroup.items}}" wx:for-item="candidate" wx:key="code" data-code="{{candidate.code}}" bindtap="selectDestinationCandidate">
+            <view class="destination-option-copy"><text class="destination-option-name">{{candidate.label}}</text><text class="destination-option-code">{{candidate.code}}</text></view>
+            <view class="destination-option-right"><text class="destination-option-country">{{candidate.country}}</text><text wx:if="{{pendingDestinationCode === candidate.code}}" class="destination-option-check">✓</text></view>
+          </view>
+        </block>
+        <view wx:if="{{destinationGroups.length === 0}}" class="destination-empty">{{emptyDestination}}</view>
+      </scroll-view>
+    </view>
+  </view>
+</view>

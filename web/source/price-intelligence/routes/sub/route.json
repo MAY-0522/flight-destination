@@ -1,0 +1,10 @@
+{
+  "origin": "KUL",
+  "destination": "SUB",
+  "trip_type": "one_way",
+  "currency": "MYR",
+  "source": "AirAsia MOVE",
+  "snapshot_date": "2026-10-26",
+  "source_url": "https://www.airasia.com/flights/juanda-international-airport-surabaya/",
+  "source_freshness_note": "one-way样本来源：AirAsia MOVE、Expedia Malaysia。每条观察中的日期、标价与采集时间以对应来源页面记录为准；网页价格和可售性会变化，未逐条完成下单核验。 Expedia 页面称相关报价在过去 7 天内可查。"
+}

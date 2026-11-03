@@ -1,0 +1,10 @@
+{
+  "origin": "KUL",
+  "destination": "DLI",
+  "trip_type": "one_way",
+  "currency": "MYR",
+  "source": "Expedia Malaysia",
+  "snapshot_date": "2026-10-26",
+  "source_url": "https://www.expedia.com.my/lp/flights/kul/dli/kuala-lumpur-to-da-lat",
+  "source_freshness_note": "Expedia 直飞筛选结果页显示该指定日期的 MYR 单程报价；页面称价格在过去 7 天内可查。未在下单流程复核，价格与可售性可能变化。"
+}

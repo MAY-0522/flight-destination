@@ -1,0 +1,10 @@
+{
+  "origin": "KUL",
+  "destination": "BTJ",
+  "trip_type": "one_way",
+  "currency": "MYR",
+  "source": "Traveloka Malaysia",
+  "snapshot_date": "2026-10-26",
+  "source_url": "https://www.traveloka.com/en-my/flight/route/Kuala-Lumpur-Banda-Aceh.KUL.BTJ",
+  "source_freshness_note": "Traveloka 公开航线页显示了所列日期和 MYR 价格，并标示该航线有直飞航班；日历价格未逐条关联到具体航空公司或班次，承运人记为 unknown。未在下单步骤核验可售性。"
+}

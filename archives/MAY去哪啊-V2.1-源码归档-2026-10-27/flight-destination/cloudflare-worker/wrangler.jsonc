@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "flight-destination-public-fares",
+  "main": "worker.js",
+  "compatibility_date": "2026-10-26",
+  "triggers": {
+    "crons": ["0 16 * * *"]
+  },
+  "kv_namespaces": [
+    {
+      "binding": "PUBLIC_FARES",
+      "id": "REPLACE_WITH_CLOUDFLARE_KV_NAMESPACE_ID"
+    }
+  ]
+}

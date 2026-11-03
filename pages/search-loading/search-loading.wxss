@@ -1,0 +1,211 @@
+page {
+  background: #f6f8f8;
+}
+
+.page {
+  min-height: 100vh;
+  background: #f6f8f8;
+}
+
+.loading-container {
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 180rpx 48rpx 80rpx;
+}
+
+/* 图标 */
+
+.loading-icon {
+  margin-bottom: 48rpx;
+}
+
+.loading-circle {
+  width: 150rpx;
+  height: 150rpx;
+
+  border-radius: 50%;
+
+  background: #e8f5f3;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  animation: pulse 1.8s infinite;
+}
+
+.loading-plane {
+  font-size: 64rpx;
+  transform: rotate(-15deg);
+}
+
+/* 标题 */
+
+.title {
+  font-size: 42rpx;
+  font-weight: 700;
+  color: #182323;
+
+  margin-bottom: 18rpx;
+}
+
+.status-text {
+  font-size: 27rpx;
+  color: #748181;
+
+  min-height: 40rpx;
+
+  text-align: center;
+}
+
+/* 进度 */
+
+.progress-wrapper {
+  width: 100%;
+
+  margin-top: 70rpx;
+}
+
+.progress-background {
+  width: 100%;
+  height: 14rpx;
+
+  background: #e3e9e8;
+
+  border-radius: 20rpx;
+
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+
+  background: #18a999;
+
+  border-radius: 20rpx;
+
+  transition: width 0.4s ease;
+}
+.progress-0 {
+  width: 0%;
+}
+
+.progress-20 {
+  width: 20%;
+}
+
+.progress-45 {
+  width: 45%;
+}
+
+.progress-70 {
+  width: 70%;
+}
+
+.progress-90 {
+  width: 90%;
+}
+
+.progress-100 {
+  width: 100%;
+}
+
+.progress-info {
+  margin-top: 16rpx;
+
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 23rpx;
+  color: #899494;
+}
+
+/* 搜索步骤 */
+
+.search-info {
+  width: 100%;
+
+  margin-top: 60rpx;
+
+  padding: 30rpx;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border-radius: 20rpx;
+
+  border: 1rpx solid #edf0f0;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 24rpx;
+
+  font-size: 26rpx;
+  color: #536161;
+}
+
+.info-item:last-child {
+  margin-bottom: 0;
+}
+
+.check {
+  width: 38rpx;
+  height: 38rpx;
+
+  margin-right: 18rpx;
+
+  border-radius: 50%;
+
+  background: #e8f5f3;
+  color: #18a999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 24rpx;
+  font-weight: 700;
+}
+
+/* 取消 */
+
+.cancel-button {
+  margin-top: 60rpx;
+
+  padding: 20rpx 50rpx;
+
+  color: #718080;
+
+  font-size: 26rpx;
+
+  border: 1rpx solid #dfe5e4;
+
+  border-radius: 50rpx;
+
+  background: #ffffff;
+}
+
+/* 动画 */
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.06);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

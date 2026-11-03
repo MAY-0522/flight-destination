@@ -1,0 +1,23 @@
+module.exports = [
+  {
+    "origin": "KUL",
+    "destination": "AOR",
+    "trip_type": "round_trip",
+    "flight_date": "2027-07-10",
+    "return_date": "2027-07-12",
+    "weekday": "Saturday",
+    "is_weekend": true,
+    "airline": "Malaysia Airlines",
+    "price": 195,
+    "currency": "MYR",
+    "baggage": "unknown",
+    "is_holiday": null,
+    "source": "Expedia Malaysia",
+    "source_observation_type": "public round-trip fare listing",
+    "source_url": "https://www.expedia.com.my/lp/flights/kul/aor/kuala-lumpur-to-alor-setar?flightType=ONE_WAY",
+    "collected_at": "2026-10-26",
+    "days_before_departure": 257,
+    "price_basis": "per traveller, return total",
+    "source_freshness_note": "Expedia 页面标明报价在过去 7 天内可查，并在当前列表标出具体行程日期；未在下单流程逐项复核，价格与可售性可能变化。"
+  }
+]

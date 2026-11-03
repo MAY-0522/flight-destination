@@ -1,0 +1,775 @@
+/* =====================================================
+   页面
+   ===================================================== */
+
+   page {
+    background: #f5f7f7;
+  }
+  
+  .page {
+    min-height: 100vh;
+    background: #f5f7f7;
+    color: #182222;
+  }
+  
+  
+  /* =====================================================
+     顶部导航
+     ===================================================== */
+  
+  .nav-bar {
+    height: 96rpx;
+    background: #ffffff;
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
+    padding: 0 28rpx;
+  
+    border-bottom: 1rpx solid #edf0f0;
+  }
+  
+  .nav-back {
+    width: 64rpx;
+    height: 64rpx;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    font-size: 52rpx;
+    color: #182222;
+  }
+  
+  .nav-title {
+    font-size: 34rpx;
+    font-weight: 700;
+  }
+  
+  .nav-placeholder {
+    width: 64rpx;
+  }
+  
+  
+  /* =====================================================
+     滚动区域
+     ===================================================== */
+  
+  .page-scroll {
+    height: calc(100vh - 96rpx);
+    box-sizing: border-box;
+  }
+  
+  
+  /* =====================================================
+     结果标题
+     ===================================================== */
+  
+  .result-header {
+    padding: 36rpx 28rpx 24rpx;
+  }
+  
+  .result-title {
+    font-size: 38rpx;
+    font-weight: 800;
+    line-height: 1.35;
+  }
+  
+  .result-subtitle {
+    margin-top: 10rpx;
+  
+    font-size: 26rpx;
+    color: #899494;
+  }
+  
+  
+  /* =====================================================
+     搜索条件摘要
+     ===================================================== */
+  
+  .summary-card {
+    margin: 0 20rpx;
+  
+    padding: 26rpx 20rpx;
+  
+    background: #ffffff;
+  
+    border-radius: 24rpx;
+  
+    display: flex;
+    align-items: center;
+  
+    box-shadow: 0 8rpx 30rpx rgba(28, 48, 48, 0.05);
+  }
+  
+  .summary-item {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .summary-label {
+    font-size: 23rpx;
+    color: #9ba5a5;
+    margin-bottom: 10rpx;
+  }
+  
+  .summary-value {
+    font-size: 27rpx;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  
+  .summary-divider {
+    width: 1rpx;
+    height: 64rpx;
+    background: #e8eded;
+    margin: 0 18rpx;
+  }
+  
+  
+  /* =====================================================
+     筛选标签
+     ===================================================== */
+  
+  .filter-tags {
+    display: flex;
+    gap: 12rpx;
+  
+    padding: 22rpx 24rpx;
+  }
+  
+  .filter-tag {
+    padding: 10rpx 18rpx;
+  
+    background: #eaf7f6;
+  
+    border-radius: 12rpx;
+  
+    color: #159fa1;
+    font-size: 23rpx;
+  }
+  
+  
+  /* =====================================================
+     结果列表
+     ===================================================== */
+  
+  .result-list {
+    padding: 0 20rpx;
+  }
+  
+  .result-card {
+    background: #ffffff;
+  
+    border-radius: 24rpx;
+  
+    margin-bottom: 20rpx;
+  
+    padding: 26rpx 22rpx;
+  
+    box-shadow: 0 8rpx 30rpx rgba(28, 48, 48, 0.05);
+  }
+  
+  
+  /* =====================================================
+     目的地头部
+     ===================================================== */
+  
+  .destination-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .destination-left {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .destination-image {
+    width: 84rpx;
+    height: 84rpx;
+  
+    flex-shrink: 0;
+  
+    border-radius: 18rpx;
+  
+    background: #e8f5f4;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    color: #159fa1;
+    font-size: 34rpx;
+    font-weight: 800;
+  }
+  
+  .destination-info {
+    margin-left: 18rpx;
+    min-width: 0;
+  }
+  
+  .destination-name-row {
+    display: flex;
+    align-items: baseline;
+  }
+  
+  .destination-city {
+    font-size: 34rpx;
+    font-weight: 800;
+  }
+  
+  .destination-country {
+    margin-left: 10rpx;
+  
+    font-size: 23rpx;
+    color: #899494;
+  }
+  
+  .destination-airport {
+    margin-top: 8rpx;
+  
+    font-size: 22rpx;
+    color: #9ba5a5;
+  
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  
+    max-width: 350rpx;
+  }
+  
+  
+  /* =====================================================
+     价格
+     ===================================================== */
+  
+  .price-block {
+    text-align: right;
+    margin-left: 16rpx;
+  }
+  
+  .price {
+    font-size: 40rpx;
+    font-weight: 800;
+    color: #182222;
+  }
+  
+  .price-label {
+    margin-top: 4rpx;
+  
+    font-size: 20rpx;
+    color: #9ba5a5;
+  }
+  
+  
+  /* =====================================================
+     最低价格标签
+     ===================================================== */
+  
+  .lowest-price-badge {
+    display: inline-block;
+  
+    margin-top: 18rpx;
+  
+    padding: 8rpx 14rpx;
+  
+    background: #eaf7f6;
+  
+    border-radius: 10rpx;
+  
+    font-size: 21rpx;
+    color: #159fa1;
+  }
+  
+  
+  /* =====================================================
+     航班区块
+     ===================================================== */
+  
+  .flight-section {
+    margin-top: 28rpx;
+  
+    padding-top: 24rpx;
+  
+    border-top: 1rpx solid #edf0f0;
+  }
+  
+  .flight-title {
+    font-size: 27rpx;
+    font-weight: 700;
+  }
+  
+  .flight-date {
+    margin-top: 5rpx;
+  
+    font-size: 22rpx;
+    color: #9ba5a5;
+  }
+  
+  .flight-route {
+    display: flex;
+    align-items: center;
+  
+    margin-top: 20rpx;
+  }
+  
+  .flight-time-block {
+    width: 150rpx;
+  }
+  
+  .flight-time-block.right {
+    text-align: right;
+  }
+  
+  .flight-time {
+    font-size: 36rpx;
+    font-weight: 800;
+  }
+  
+  .flight-airport {
+    margin-top: 5rpx;
+  
+    font-size: 21rpx;
+    color: #8d9999;
+  }
+  
+  .flight-middle {
+    flex: 1;
+    margin: 0 16rpx;
+    text-align: center;
+  }
+  
+  .flight-duration {
+    font-size: 20rpx;
+    color: #899494;
+  }
+  
+  .flight-line {
+    display: flex;
+    align-items: center;
+  
+    margin: 10rpx 0;
+  }
+  
+  .flight-dot {
+    width: 10rpx;
+    height: 10rpx;
+  
+    border-radius: 50%;
+  
+    background: #159fa1;
+  }
+  
+  .flight-line-inner {
+    flex: 1;
+    height: 2rpx;
+  
+    background: #159fa1;
+  }
+  
+  .flight-direct {
+    font-size: 20rpx;
+    color: #159fa1;
+  }
+  
+  
+  /* =====================================================
+     航空公司
+     ===================================================== */
+  
+  .airline-info {
+    margin-top: 18rpx;
+  
+    text-align: center;
+  
+    font-size: 22rpx;
+    color: #899494;
+  }
+  
+  
+  /* =====================================================
+     返程
+     ===================================================== */
+  
+  .return-section {
+    margin-top: 24rpx;
+  }
+  
+  
+  /* =====================================================
+     结果底部信息
+     ===================================================== */
+  
+  .result-footer {
+    display: flex;
+    justify-content: space-between;
+  
+    margin-top: 24rpx;
+    padding-top: 18rpx;
+  
+    border-top: 1rpx solid #edf0f0;
+  
+    font-size: 21rpx;
+    color: #899494;
+  }
+  
+  .source-info {
+    margin-top: 8rpx;
+  
+    text-align: right;
+  
+    font-size: 19rpx;
+    color: #a4adad;
+  }
+  
+  
+  /* =====================================================
+     无结果状态
+     ===================================================== */
+  
+  .empty-state {
+    min-height: calc(100vh - 260rpx);
+  
+    padding: 120rpx 56rpx 180rpx;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    text-align: center;
+  }
+  
+  .empty-icon {
+    width: 120rpx;
+    height: 120rpx;
+  
+    border-radius: 50%;
+  
+    background: #eaf7f6;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    font-size: 52rpx;
+    color: #159fa1;
+  }
+  
+  .empty-title {
+    margin-top: 36rpx;
+  
+    font-size: 34rpx;
+    font-weight: 800;
+    line-height: 1.4;
+  }
+  
+  .empty-description {
+    margin-top: 18rpx;
+  
+    font-size: 25rpx;
+    line-height: 1.7;
+  
+    color: #899494;
+  }
+  
+  .empty-button {
+    margin-top: 42rpx;
+  
+    width: 360rpx;
+    height: 88rpx;
+  
+    border-radius: 20rpx;
+  
+    background: #159fa1;
+  
+    color: #ffffff;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    font-size: 29rpx;
+    font-weight: 700;
+  }
+  
+  
+  /* =====================================================
+     底部空间
+     ===================================================== */
+  
+  .bottom-space {
+    height: 180rpx;
+  }
+  
+  
+  /* =====================================================
+     底部操作栏
+     ===================================================== */
+  
+  .bottom-actions {
+    position: fixed;
+  
+    left: 0;
+    right: 0;
+    bottom: 0;
+  
+    height: 128rpx;
+  
+    padding: 20rpx 24rpx;
+  
+    box-sizing: border-box;
+  
+    background: rgba(255, 255, 255, 0.96);
+  
+    border-top: 1rpx solid #e8eded;
+  
+    display: flex;
+    gap: 16rpx;
+  
+    z-index: 100;
+  }
+  
+  .bottom-actions button {
+    margin: 0;
+    padding: 0;
+  
+    height: 88rpx;
+  
+    border-radius: 18rpx;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    font-size: 27rpx;
+    font-weight: 700;
+  }
+  
+  .bottom-actions button::after {
+    border: none;
+  }
+  
+  .modify-button {
+    width: 30%;
+  
+    background: #eef2f2;
+    color: #536161;
+  }
+  
+  .refresh-button {
+    flex: 1;
+  
+    background: #159fa1;
+    color: #ffffff;
+  }
+/* =====================================================
+   排除目的地回显
+   ===================================================== */
+
+   .excluded-summary {
+    margin: 0 24rpx 20rpx;
+    padding: 18rpx 20rpx;
+  
+    background: #ffffff;
+  
+    border-radius: 18rpx;
+  
+    border: 1rpx solid #edf0f0;
+  }
+  
+  .excluded-summary-title {
+    font-size: 23rpx;
+    color: #899494;
+    margin-bottom: 12rpx;
+  }
+  
+  .excluded-summary-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10rpx;
+  }
+  
+  .excluded-summary-tag {
+    padding: 8rpx 14rpx;
+  
+    background: #f1f5f5;
+  
+    border-radius: 10rpx;
+  
+    color: #536161;
+    font-size: 22rpx;
+  }  
+
+  /* ================================
+   部分搜索失败提示
+   ================================ */
+
+.partial-warning {
+  margin: 0 24rpx 20rpx;
+  padding: 22rpx 24rpx;
+
+  background: #fff8e8;
+
+  border: 1rpx solid #f4dfae;
+
+  border-radius: 18rpx;
+}
+
+.partial-warning-title {
+  font-size: 25rpx;
+  font-weight: 600;
+
+  color: #8a671d;
+
+  margin-bottom: 10rpx;
+}
+
+.partial-warning-text {
+  font-size: 22rpx;
+
+  line-height: 1.6;
+
+  color: #927d4c;
+
+  margin-bottom: 14rpx;
+}
+
+.partial-warning-list {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 10rpx;
+}
+
+.failed-destination {
+  padding: 7rpx 14rpx;
+
+  background: #ffffff;
+
+  border-radius: 10rpx;
+
+  color: #8a671d;
+
+  font-size: 21rpx;
+
+  border: 1rpx solid #f0dfb7;
+}
+
+/* =================================
+   最后更新时间
+   ================================= */
+
+   .last-updated {
+    display: flex;
+    align-items: center;
+  
+    margin: 0 24rpx 18rpx;
+  
+    font-size: 22rpx;
+    color: #8a9696;
+  }
+  
+  .last-updated-dot {
+    width: 10rpx;
+    height: 10rpx;
+  
+    margin-right: 10rpx;
+  
+    border-radius: 50%;
+  
+    background: #18a999;
+  }
+  
+  
+  /* =================================
+     刷新警告
+     ================================= */
+  
+  .refresh-warning {
+    margin: 0 24rpx 20rpx;
+  
+    padding: 22rpx 24rpx;
+  
+    background: #fff8e8;
+  
+    border: 1rpx solid #f4dfae;
+  
+    border-radius: 18rpx;
+  }
+  
+  .refresh-warning.error {
+    background: #fff3f1;
+  
+    border-color: #f2d0cb;
+  }
+  
+  .refresh-warning-title {
+    font-size: 25rpx;
+  
+    font-weight: 600;
+  
+    color: #8a671d;
+  
+    margin-bottom: 10rpx;
+  }
+  
+  .refresh-warning.error
+  .refresh-warning-title {
+    color: #a34f45;
+  }
+  
+  .refresh-warning-text {
+    font-size: 22rpx;
+  
+    line-height: 1.6;
+  
+    color: #927d4c;
+  }
+  
+  .refresh-warning.error
+  .refresh-warning-text {
+    color: #9b625b;
+  }
+  
+  .refresh-warning-list {
+    display: flex;
+  
+    flex-wrap: wrap;
+  
+    gap: 10rpx;
+  
+    margin-top: 14rpx;
+  }
+  
+  .refresh-failed-tag {
+    padding: 7rpx 14rpx;
+  
+    background: #ffffff;
+  
+    border-radius: 10rpx;
+  
+    color: #8a671d;
+  
+    font-size: 21rpx;
+  
+    border: 1rpx solid #f0dfb7;
+  }
+  
+  
+  /* =================================
+     刷新状态
+     ================================= */
+  
+  .bottom-button.disabled {
+    opacity: 0.5;
+  }
+  
+  .bottom-button.primary.disabled {
+    pointer-events: none;
+  }

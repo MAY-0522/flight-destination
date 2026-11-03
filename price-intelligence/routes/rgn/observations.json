@@ -1,0 +1,22 @@
+[
+  {
+    "origin": "KUL",
+    "destination": "RGN",
+    "trip_type": "one_way",
+    "flight_date": "2027-02-21",
+    "weekday": "Sunday",
+    "is_weekend": true,
+    "is_holiday": null,
+    "airline": "unknown",
+    "price": 324,
+    "currency": "MYR",
+    "baggage": "unknown",
+    "source": "Expedia Malaysia",
+    "source_url": "https://www.expedia.com.my/lp/flights/kul/rgn/kuala-lumpur-to-yangon?flightType=ONE_WAY",
+    "collected_at": "2026-10-26",
+    "days_before_departure": 118,
+    "fare_type": "public displayed one-way fare",
+    "snapshot_note": "Expedia 页面显示的指定日期单程报价快照；票价和可订性可能变化。",
+    "source_freshness_note": "Expedia 页面说明该价格在过去 7 天内可查；记录为页面列出的具体日期报价。网页索引内容未在下单流程逐项复核，价格与可售性可能变化。"
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "origin": "KUL",
+  "destination": "DMK",
+  "trip_type": "one_way",
+  "currency": "MYR",
+  "source": "Expedia Malaysia",
+  "snapshot_date": "2026-10-26",
+  "source_url": "https://www.expedia.com.my/lp/flights/kul/dmk/kuala-lumpur-to-bangkok",
+  "source_freshness_note": "该路由的样本包含 Expedia Malaysia 与 Traveloka Malaysia 的公开报价。Expedia 页面称报价在过去 7 天内可查；Traveloka 价格日历按指定日期列价，但部分金额没有对应具体航班或经停信息。各样本未在下单流程逐项复核。"
+}

@@ -1,0 +1,22 @@
+module.exports = [
+  {
+    "origin": "KUL",
+    "destination": "JHB",
+    "trip_type": "round_trip",
+    "flight_date": "2026-11-27",
+    "return_date": "2026-11-30",
+    "weekday": "Friday",
+    "is_weekend": false,
+    "airline": "Firefly",
+    "price": 226,
+    "currency": "MYR",
+    "baggage": "unknown",
+    "is_holiday": null,
+    "source": "Expedia Malaysia",
+    "source_observation_type": "public round-trip fare listing",
+    "source_url": "https://www.expedia.com.my/lp/flights/kul/jhb/kuala-lumpur-to-johor-bahru",
+    "collected_at": "2026-10-26",
+    "days_before_departure": 32,
+    "price_basis": "per traveller, return total"
+  }
+]

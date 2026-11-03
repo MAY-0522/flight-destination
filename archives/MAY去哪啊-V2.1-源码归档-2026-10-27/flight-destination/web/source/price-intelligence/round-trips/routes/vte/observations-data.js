@@ -1,0 +1,22 @@
+module.exports = [
+  {
+    "origin": "KUL",
+    "destination": "VTE",
+    "trip_type": "round_trip",
+    "flight_date": "2026-11-10",
+    "return_date": "2026-11-14",
+    "weekday": "Tuesday",
+    "is_weekend": false,
+    "airline": "AirAsia",
+    "price": 751,
+    "currency": "MYR",
+    "baggage": "unknown",
+    "is_holiday": null,
+    "source": "Expedia Malaysia",
+    "source_observation_type": "public round-trip fare listing",
+    "source_url": "https://www.expedia.com.my/lp/flights/kul/vte/kuala-lumpur-to-vientiane",
+    "collected_at": "2026-10-26",
+    "days_before_departure": 15,
+    "price_basis": "per traveller, return total"
+  }
+]

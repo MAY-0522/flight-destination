@@ -1,0 +1,42 @@
+module.exports = [
+  {
+    "origin": "KUL",
+    "destination": "DVO",
+    "trip_type": "one_way",
+    "flight_date": "2026-12-14",
+    "weekday": "Monday",
+    "is_weekend": false,
+    "is_holiday": null,
+    "airline": "unknown",
+    "price": 1191,
+    "currency": "MYR",
+    "baggage": "unknown",
+    "source": "AirAsia MOVE",
+    "source_url": "https://www.airasia.com/flights/km/kh/from-kuala-lumpur-kul-to-davao-dvo/",
+    "collected_at": "2026-10-26",
+    "days_before_departure": 49,
+    "fare_type": "public displayed one-way fare",
+    "snapshot_note": "公开航线页/搜索索引列出的单程标价快照；票价和可订性可能变化。",
+    "source_freshness_note": "公开航线页/搜索索引中的标价快照；页面抓取时间可能早于本次提取日，未对每个行程实时完成下单核验。转机情况未能对应到每个日历价格时，航司标为 unknown。"
+  },
+  {
+    "origin": "KUL",
+    "destination": "DVO",
+    "trip_type": "one_way",
+    "flight_date": "2026-12-15",
+    "weekday": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": null,
+    "airline": "unknown",
+    "price": 1201,
+    "currency": "MYR",
+    "baggage": "unknown",
+    "source": "AirAsia MOVE",
+    "source_url": "https://www.airasia.com/flights/km/kh/from-kuala-lumpur-kul-to-davao-dvo/",
+    "collected_at": "2026-10-26",
+    "days_before_departure": 50,
+    "fare_type": "public displayed one-way fare",
+    "snapshot_note": "公开航线页/搜索索引列出的单程标价快照；票价和可订性可能变化。",
+    "source_freshness_note": "公开航线页/搜索索引中的标价快照；页面抓取时间可能早于本次提取日，未对每个行程实时完成下单核验。转机情况未能对应到每个日历价格时，航司标为 unknown。"
+  }
+]

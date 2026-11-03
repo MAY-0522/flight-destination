@@ -1,0 +1,7 @@
+{
+  "origin": "KUL",
+  "destination": "KNO",
+  "trip_type": "round_trip",
+  "currency": "MYR",
+  "source_freshness_note": "round-trip样本来源：Expedia Malaysia。每条观察中的日期、标价与采集时间以对应来源页面记录为准；网页价格和可售性会变化，未逐条完成下单核验。 Expedia 页面称相关报价在过去 7 天内可查。"
+}

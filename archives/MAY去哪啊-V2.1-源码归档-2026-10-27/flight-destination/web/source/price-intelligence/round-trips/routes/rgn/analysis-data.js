@@ -1,0 +1,158 @@
+module.exports = {
+  "route": {
+    "origin": "KUL",
+    "destination": "RGN",
+    "trip_type": "round_trip",
+    "currency": "MYR"
+  },
+  "generated_at": "2026-10-26T10:50:06.910Z",
+  "sample": {
+    "observation_count": 6,
+    "distinct_departure_dates": 6,
+    "distinct_itineraries": 6,
+    "sources": [
+      "Expedia Malaysia"
+    ],
+    "collection_dates": [
+      "2026-10-26"
+    ],
+    "source_freshness_note": "round-trip样本来源：Expedia Malaysia。每条观察中的日期、标价与采集时间以对应来源页面记录为准；网页价格和可售性会变化，未逐条完成下单核验。 Expedia 页面称相关报价在过去 7 天内可查。",
+    "reference_level": "较低",
+    "reference_reason": "本次仅收集到 6 条往返公开标价，属于网页快照样本；样本范围有限，结论仅作参考。"
+  },
+  "price_distribution_raw_quotes": {
+    "count": 6,
+    "minimum": 758,
+    "p10": 808,
+    "p25": 912.25,
+    "median": 1164,
+    "p75": 1254.5,
+    "p90": 1265,
+    "maximum": 1275
+  },
+  "weekday_effect_by_departure_date_median": {
+    "weekdays": {
+      "Monday": {
+        "count": 0,
+        "average": null,
+        "median": null
+      },
+      "Tuesday": {
+        "count": 0,
+        "average": null,
+        "median": null
+      },
+      "Wednesday": {
+        "count": 0,
+        "average": null,
+        "median": null
+      },
+      "Thursday": {
+        "count": 0,
+        "average": null,
+        "median": null
+      },
+      "Friday": {
+        "count": 1,
+        "average": 1075,
+        "median": 1075
+      },
+      "Saturday": {
+        "count": 2,
+        "average": 1254,
+        "median": 1254
+      },
+      "Sunday": {
+        "count": 3,
+        "average": 963.67,
+        "median": 858
+      }
+    },
+    "lowest_average_day": "Sunday",
+    "highest_average_day": "Saturday",
+    "weekday_average": 1075,
+    "weekend_average": 1079.8,
+    "weekend_premium_percentage": 0.45,
+    "method": "按去程日期与返程日期组合计算行程中位价，再按去程星期描述性汇总。"
+  },
+  "advance_purchase_window_by_departure_date_median": {
+    "buckets": [
+      {
+        "range": "0–3 days",
+        "count": 0,
+        "average": null,
+        "median": null
+      },
+      {
+        "range": "4–7 days",
+        "count": 0,
+        "average": null,
+        "median": null
+      },
+      {
+        "range": "8–14 days",
+        "count": 0,
+        "average": null,
+        "median": null
+      },
+      {
+        "range": "15–30 days",
+        "count": 0,
+        "average": null,
+        "median": null
+      },
+      {
+        "range": "31–60 days",
+        "count": 0,
+        "average": null,
+        "median": null
+      },
+      {
+        "range": "60+ days",
+        "count": 6,
+        "average": 1079,
+        "median": 1164
+      }
+    ],
+    "lowest_average_window": "60+ days",
+    "method": "以采集日计算距去程日期的天数；仅作横截面描述。"
+  },
+  "round_trip_duration": {
+    "median_nights": 7,
+    "buckets": [
+      {
+        "range": "1–3 晚",
+        "count": 0,
+        "average": null,
+        "median": null
+      },
+      {
+        "range": "4–7 晚",
+        "count": 4,
+        "average": 991.5,
+        "median": 966.5
+      },
+      {
+        "range": "8–14 晚",
+        "count": 1,
+        "average": 1253,
+        "median": 1253
+      },
+      {
+        "range": "15 晚以上",
+        "count": 1,
+        "average": 1255,
+        "median": 1255
+      }
+    ],
+    "method": "按去程与返程日期之差统计行程晚数；价格比较受日期和样本范围影响。"
+  },
+  "holiday_effect": {
+    "status": "insufficient_data",
+    "message": "当前样本没有足够且可靠的假期标记，暂时无法判断节假日价格规律。"
+  },
+  "caveats": [
+    "这是公开网页展示的往返总价快照，不是历史成交价，也不保证目前仍可订。",
+    "去程与返程日期、税费、行李和来源口径可能不同；未知信息不作推测。"
+  ]
+}

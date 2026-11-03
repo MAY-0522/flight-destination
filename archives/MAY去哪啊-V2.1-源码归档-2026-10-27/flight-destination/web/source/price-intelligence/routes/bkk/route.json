@@ -1,0 +1,10 @@
+{
+  "origin": "KUL",
+  "destination": "BKK",
+  "trip_type": "one_way",
+  "currency": "MYR",
+  "source": "VietJet Air",
+  "snapshot_date": "2026-10-26",
+  "source_url": "https://www.vietjetair.com/en/flight-tickets/flights-from-kuala-lumpur-to-bangkok",
+  "source_freshness_note": "one-way样本来源：AirAsia MOVE、VietJet Air。每条观察中的日期、标价与采集时间以对应来源页面记录为准；网页价格和可售性会变化，未逐条完成下单核验。"
+}
