@@ -6005,6 +6005,11 @@
     "sha256": "6e5bcc210c15d497bab1980fe7af5fb711c42f11432a82eb06aa19eaba891845"
   },
   {
+    "path": "CHANGELOG.md",
+    "bytes": 1025,
+    "sha256": "a13ef90c25d8d1f9aef8cc2fe9853a68a985dcdfe0253b0e734be999d4b52173"
+  },
+  {
     "path": "cloudflare-worker/README.md",
     "bytes": 4015,
     "sha256": "523f6137426c2ee85b9fc6e7bf7802e215e784008812e8e817cde2ad534551f4"
@@ -6053,6 +6058,11 @@
     "path": "docs/PUBLICATION-CHECK.md",
     "bytes": 1106,
     "sha256": "d7ffe5c0e548a42fccd42741f3cf5bd55515fb8d2f055ee73f5f2760c6d225de"
+  },
+  {
+    "path": "LICENSE",
+    "bytes": 1065,
+    "sha256": "916a0522704b77a5997c2717ccb3cba7027d7629ddc2dc6afe64248eaa29b40e"
   },
   {
     "path": "pages/index/index.js",
@@ -6191,8 +6201,13 @@
   },
   {
     "path": "price-intelligence/live-route-analysis.js",
-    "bytes": 12190,
-    "sha256": "192d1fd9919cbdd0ecd107b88f2dc55eb0d001f20eec6e636ce2669c9f09f4c3"
+    "bytes": 14203,
+    "sha256": "4098e0838542caadec448019a58eddb987343b73e95f1e7991d88c74f27b0409"
+  },
+  {
+    "path": "price-intelligence/malaysia-holidays.js",
+    "bytes": 5974,
+    "sha256": "f1b9261ab79e8d1da899c8dfc6804d223868d651544fbaf8d22b54691cb897d7"
   },
   {
     "path": "price-intelligence/observation-index.js",
@@ -6201,8 +6216,8 @@
   },
   {
     "path": "price-intelligence/pages/insights/insights.js",
-    "bytes": 23136,
-    "sha256": "30fb44d62e0b8ee3d181c2e6b0017c709f2a9f804a3d18ba17faf671e9200276"
+    "bytes": 25668,
+    "sha256": "706cb3aec443d31dcc6eb8618851699a4482dd77f9f67253531603ed90338710"
   },
   {
     "path": "price-intelligence/pages/insights/insights.json",
@@ -6211,13 +6226,13 @@
   },
   {
     "path": "price-intelligence/pages/insights/insights.wxml",
-    "bytes": 11860,
-    "sha256": "439e7d79bc908eb01c6d9b27ef4edc2e8e4593110ae4789b08feecfd40ce8e1b"
+    "bytes": 13298,
+    "sha256": "3c3f54d7862dbfb942db079383dffb587d363ddfb56e5e2df92f022651926375"
   },
   {
     "path": "price-intelligence/pages/insights/insights.wxss",
-    "bytes": 10065,
-    "sha256": "a58f083d60dc9ed2687a0ea1cdb234d895b36eb6a276aeab3af318a8580a69b0"
+    "bytes": 11283,
+    "sha256": "1322259b5714d0e3c93257b6e056024793349cb787b46ab55abd992fbc580a00"
   },
   {
     "path": "price-intelligence/QUNAR-PILOT.md",
@@ -8901,13 +8916,13 @@
   },
   {
     "path": "project.config.json",
-    "bytes": 1195,
-    "sha256": "f0e8903019dc56e58080355bd9e9cabb91ebab486a06b891babe836764bc338d"
+    "bytes": 1930,
+    "sha256": "a59340df266192ca891a81f79972f70d4f0e030cacea7edb29da467718c514a3"
   },
   {
     "path": "README.md",
-    "bytes": 4623,
-    "sha256": "b488ea32dab7b694b00348b681800e70e3c189e0911b41369a15ee3fa387d408"
+    "bytes": 4655,
+    "sha256": "655a8f4fc93b8c1d89cdcff26f94a4408bf0bce43d284e6d34bf98993df0516f"
   },
   {
     "path": "sitemap.json",
@@ -8916,8 +8931,8 @@
   },
   {
     "path": "utils/currency-config.js",
-    "bytes": 3996,
-    "sha256": "2515a596883722edce28eb464b5caa1492a70bdd225e09d7f058e618fb1b1bd9"
+    "bytes": 4043,
+    "sha256": "5acb60a9edb9a4ca102fdb074d308d3717284cffa05dabfb772796c95c520568"
   },
   {
     "path": "utils/destination-config.js",
@@ -9011,13 +9026,13 @@
   },
   {
     "path": "web/dist/insights.css",
-    "bytes": 13393,
-    "sha256": "63cf2add5f64e3e2dd20620e7f5dcdcbe325893658c3bda6b68a405187277bbf"
+    "bytes": 14979,
+    "sha256": "e858814847cde6e14730cf4cf0ad380f596f384d94e450f343d267f59a93dd24"
   },
   {
     "path": "web/dist/mini-bundle.js",
-    "bytes": 1026015,
-    "sha256": "9c361540c41aa0e71af9fda6fc3ca76dbffc6aaa945cc19d175541741d59b5b2"
+    "bytes": 1038168,
+    "sha256": "53acb51c4c1ba02ade72d013f63740bdaa66e0f39dd190aaa80354f007e560bb"
   },
   {
     "path": "web/dist/mobile.css",
@@ -9216,8 +9231,13 @@
   },
   {
     "path": "web/source/price-intelligence/live-route-analysis.js",
-    "bytes": 12190,
-    "sha256": "192d1fd9919cbdd0ecd107b88f2dc55eb0d001f20eec6e636ce2669c9f09f4c3"
+    "bytes": 14203,
+    "sha256": "4098e0838542caadec448019a58eddb987343b73e95f1e7991d88c74f27b0409"
+  },
+  {
+    "path": "web/source/price-intelligence/malaysia-holidays.js",
+    "bytes": 5974,
+    "sha256": "f1b9261ab79e8d1da899c8dfc6804d223868d651544fbaf8d22b54691cb897d7"
   },
   {
     "path": "web/source/price-intelligence/observation-index.js",
@@ -9226,8 +9246,8 @@
   },
   {
     "path": "web/source/price-intelligence/pages/insights/insights.js",
-    "bytes": 23136,
-    "sha256": "30fb44d62e0b8ee3d181c2e6b0017c709f2a9f804a3d18ba17faf671e9200276"
+    "bytes": 25668,
+    "sha256": "706cb3aec443d31dcc6eb8618851699a4482dd77f9f67253531603ed90338710"
   },
   {
     "path": "web/source/price-intelligence/pages/insights/insights.json",
@@ -9236,13 +9256,13 @@
   },
   {
     "path": "web/source/price-intelligence/pages/insights/insights.wxml",
-    "bytes": 11860,
-    "sha256": "439e7d79bc908eb01c6d9b27ef4edc2e8e4593110ae4789b08feecfd40ce8e1b"
+    "bytes": 13298,
+    "sha256": "3c3f54d7862dbfb942db079383dffb587d363ddfb56e5e2df92f022651926375"
   },
   {
     "path": "web/source/price-intelligence/pages/insights/insights.wxss",
-    "bytes": 10065,
-    "sha256": "a58f083d60dc9ed2687a0ea1cdb234d895b36eb6a276aeab3af318a8580a69b0"
+    "bytes": 11283,
+    "sha256": "1322259b5714d0e3c93257b6e056024793349cb787b46ab55abd992fbc580a00"
   },
   {
     "path": "web/source/price-intelligence/QUNAR-PILOT.md",
@@ -11936,8 +11956,8 @@
   },
   {
     "path": "web/source/utils/currency-config.js",
-    "bytes": 3996,
-    "sha256": "2515a596883722edce28eb464b5caa1492a70bdd225e09d7f058e618fb1b1bd9"
+    "bytes": 4043,
+    "sha256": "5acb60a9edb9a4ca102fdb074d308d3717284cffa05dabfb772796c95c520568"
   },
   {
     "path": "web/source/utils/destination-config.js",

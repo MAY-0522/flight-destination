@@ -13,6 +13,38 @@
       },
       {
         "type": "folder",
+        "value": "github-upload"
+      },
+      {
+        "type": "folder",
+        "value": ".github-upload-work"
+      },
+      {
+        "type": "folder",
+        "value": "artifacts"
+      },
+      {
+        "type": "file",
+        "value": "MAY-flight-destination-github-ready-2026-11-03.zip"
+      },
+      {
+        "type": "file",
+        "value": "MAY去哪啊-V2.1-源码归档-2026-10-27.zip"
+      },
+      {
+        "type": "file",
+        "value": "may-web-deploy.tar.gz"
+      },
+      {
+        "type": "file",
+        "value": "may-web-sync-2026-11-03.tar.gz"
+      },
+      {
+        "type": "file",
+        "value": "web-mobile-preview.png"
+      },
+      {
+        "type": "folder",
         "value": "archives"
       },
       {

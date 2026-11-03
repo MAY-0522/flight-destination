@@ -31,6 +31,57 @@ function round(value) {
 }
 
 function weekdayValsSafe(data) { return data.weekday_average !== null && data.weekend_average !== null }
+function holidayPresentation(effect, language, sourceCurrency) {
+  const holidayDates = effect.holiday_date_count || 0
+  const comparisonDates = effect.comparison_date_count || 0
+  const ready = effect.status === 'estimated'
+  if (!ready) return {
+    ready: false,
+    holidayCount: holidayDates,
+    comparisonCount: comparisonDates,
+    holidayPrice: '—',
+    comparisonPrice: '—',
+    holidayBarWidth: '0%',
+    comparisonBarWidth: '0%',
+    changeText: language === 'en' ? 'Not enough samples' : '样本不足，暂不比较',
+    changeClass: 'neutral',
+    note: language === 'en'
+      ? 'At least 3 distinct departure dates are needed in each group.'
+      : '两组都需至少 3 个不同出发日期，才显示价格比较。',
+    method: language === 'en'
+      ? 'Holiday window: ±3 days · Round trips count if either leg matches · Descriptive sample only'
+      : '假期前后 3 天 · 往返任一航段命中即计入 · 仅作样本描述'
+  }
+  const holidayPrice = money(effect.holiday_median, sourceCurrency)
+  const comparisonPrice = money(effect.comparison_median, sourceCurrency)
+  const difference = Number(effect.difference_percentage)
+  const maxPrice = Math.max(Number(effect.holiday_median) || 0, Number(effect.comparison_median) || 0, 1)
+  const changeText = difference >= 0
+    ? (language === 'en' ? `${difference.toFixed(2)}% higher` : `高 ${difference.toFixed(2)}%`)
+    : (language === 'en' ? `${Math.abs(difference).toFixed(2)}% lower` : `低 ${Math.abs(difference).toFixed(2)}%`)
+  return {
+    ready: true,
+    holidayCount: holidayDates,
+    comparisonCount: comparisonDates,
+    holidayPrice,
+    comparisonPrice,
+    holidayBarWidth: `${Math.max(4, Math.round((Number(effect.holiday_median) / maxPrice) * 100))}%`,
+    comparisonBarWidth: `${Math.max(4, Math.round((Number(effect.comparison_median) / maxPrice) * 100))}%`,
+    changeText,
+    changeClass: difference > 0 ? 'up' : difference < 0 ? 'down' : 'neutral',
+    note: language === 'en'
+      ? 'Observed public fares only; this does not show that holidays caused the difference or predict future prices.'
+      : '基于已观察的公开报价；不代表假期造成价格变化，也不预测未来票价。',
+    method: language === 'en'
+      ? 'Holiday window: ±3 days · Nearby non-holiday dates: 7–35 days · Round trips count if either leg matches'
+      : '假期窗口：前后 3 天 · 日常对照：相隔 7–35 天 · 往返任一航段命中即计入'
+  }
+}
+function currencyInfoSymbol() {
+  const code = currency.getSelectedCurrency()
+  const item = currency.CURRENCIES.find(value => value.code === code)
+  return item ? item.symbol : '￥'
+}
 Page({
   data: {
     language: 'zh', isEnglish: false, languageAction: 'EN', displayCurrency: 'CNY', currencySymbol: '¥',
@@ -50,7 +101,7 @@ Page({
     price: {},
     weekend: {},
     sample: {},
-    holidayMessage: '',
+    holidayDisplay: {},
     sourceNames: '',
     leadNote: '',
     weekendNote: ''
@@ -223,8 +274,7 @@ Page({
           ? `Cloud matched ${report.live_unique_observation_count || 0} fares · deduplicated total ${report.sample.observation_count}${cloudSummary && cloudSummary.generated_at ? ` · Worker analysis ${formatBeijingTime(cloudSummary.generated_at)} Beijing time` : ''}`
           : `云端匹配 ${report.live_unique_observation_count || 0} 条报价 · 去重合并后共 ${report.sample.observation_count} 条${cloudSummary && cloudSummary.generated_at ? ` · Worker 分析时间 ${formatBeijingTime(cloudSummary.generated_at)}（北京时间）` : ''}`
       },
-      holidayMessage: report.holiday_effect.message || '当前样本不足，暂时无法判断节假日价格规律。',
-      holidayMessageEnglish: 'There are not enough reliable holiday-tagged samples to assess holiday price effects.',
+      holidayDisplay: holidayPresentation(report.holiday_effect || {}, language, fareCurrency),
       hasLeadWindow,
       leadWindow: hasLeadWindow ? lowestAverageWindow : '',
       weekendNote: language === 'en' ? (weekdayData.weekday_average !== null && weekdayData.weekend_average !== null ? 'Based on the combined sample records. Coverage is limited and differences may not be consistent.' : 'There are not enough weekday or weekend samples to compare.') : weekdayData.weekday_average !== null && weekdayData.weekend_average !== null ? '工作日与周末数据来自合并样本；覆盖范围有限，差异不代表稳定规律。' : '缺少工作日或周末样本，暂时无法比较。',

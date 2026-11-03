@@ -49,7 +49,10 @@ function formatNumber(amount, code) {
   const info = CURRENCY_BY_CODE[code] || CURRENCY_BY_CODE.CNY
   const value = Number(amount)
   if (!Number.isFinite(value)) return '—'
-  return value.toLocaleString('en-US', { minimumFractionDigits: info.decimals, maximumFractionDigits: info.decimals })
+  const fixed = value.toFixed(info.decimals)
+  const parts = fixed.split('.')
+  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+  return parts.join('.')
 }
 function format(amount, sourceCurrency, targetCurrency) {
   const code = targetCurrency || getSelectedCurrency()

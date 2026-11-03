@@ -1,6 +1,7 @@
 'use strict'
 
 const currency = require('../utils/currency-config.js')
+const { holidayForDate, holidayDistance } = require('./malaysia-holidays.js')
 const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 const LEAD_RANGES = [
   { label: '0–3 days', min: 0, max: 3 }, { label: '4–7 days', min: 4, max: 7 },
@@ -53,7 +54,7 @@ function emptyReport(destination, tripType, sourceCurrency) {
     price_distribution_raw_quotes: {},
     weekday_effect_by_departure_date_median: { weekdays: {}, lowest_average_day: null, highest_average_day: null, weekday_average: null, weekend_average: null, weekend_premium_percentage: null },
     advance_purchase_window_by_departure_date_median: { buckets: [], lowest_average_window: null },
-    holiday_effect: { message: '当前云端样本未标注节假日，暂时无法判断节假日价格规律。' },
+    holiday_effect: { status: 'insufficient', message: '正在依据吉隆坡官方假期日历匹配航班日期。' },
     round_trip_duration: { median_nights: null, buckets: [] }
   }
 }
@@ -117,9 +118,26 @@ function analyzeWithLiveFares(baseReport, baselineRows, liveRows, cloudSummary, 
       key, departure, day, weekend: day === 'Saturday' || day === 'Sunday',
       price: median(grouped.map(row => Number(row.price))),
       daysBefore,
+      returnDate: tripType === 'round_trip' ? (first.return_date || '') : '',
       duration: tripType === 'round_trip' && first.return_date ? dayDiff(departure, first.return_date) : null
     }
   })
+  const holidayTaggedSamples = samples.map(sample => {
+    const matches = [holidayForDate(sample.departure), holidayForDate(sample.returnDate)].filter(Boolean)
+    matches.sort((a, b) => Math.abs(a.distance) - Math.abs(b.distance))
+    return Object.assign({}, sample, { holiday: matches[0] || null })
+  })
+  const holidaySamples = holidayTaggedSamples.filter(sample => sample.holiday)
+  const comparisonSamples = holidayTaggedSamples.filter(sample => {
+    if (sample.holiday) return false
+    const distance = holidayDistance(sample.departure)
+    return distance >= 7 && distance <= 35
+  })
+  const holidayDateCount = new Set(holidaySamples.map(sample => sample.departure)).size
+  const comparisonDateCount = new Set(comparisonSamples.map(sample => sample.departure)).size
+  const holidayMedian = median(holidaySamples.map(sample => sample.price))
+  const comparisonMedian = median(comparisonSamples.map(sample => sample.price))
+  const holidayEffectReady = holidayDateCount >= 3 && comparisonDateCount >= 3 && comparisonMedian > 0
   const weekdays = {}
   DAYS.forEach(day => { weekdays[day] = summarize(samples.filter(sample => sample.day === day).map(sample => sample.price)) })
   const weekdayValues = samples.filter(sample => !sample.weekend).map(sample => sample.price)
@@ -150,6 +168,20 @@ function analyzeWithLiveFares(baseReport, baselineRows, liveRows, cloudSummary, 
     buckets: leadBuckets,
     lowest_average_window: leadBuckets.filter(bucket => bucket.count).sort((a, b) => a.average - b.average)[0]?.range || null,
     method: '以每条报价的采集日计算提前天数；同一来源和行程日期仅取最新观察，不能推断同一航班价格随时间变化'
+  }
+  report.holiday_effect = {
+    status: holidayEffectReady ? 'estimated' : 'insufficient',
+    holiday_sample_count: holidaySamples.length,
+    holiday_date_count: holidayDateCount,
+    comparison_sample_count: comparisonSamples.length,
+    comparison_date_count: comparisonDateCount,
+    holiday_median: round(holidayMedian),
+    comparison_median: round(comparisonMedian),
+    difference_percentage: holidayEffectReady ? round((holidayMedian - comparisonMedian) / comparisonMedian * 100) : null,
+    holiday_window_days: 3,
+    comparison_window_days: '7–35',
+    calendar_scope: '吉隆坡联邦直辖区',
+    method: '按官方假期日前后3天标记；往返任一航段命中即归入假期样本。以假期附近7–35天且未命中假期窗口的样本作描述性对照；不表示因果关系。'
   }
   if (tripType === 'round_trip') {
     const durations = samples.map(sample => sample.duration).filter(value => Number.isFinite(value) && value > 0)

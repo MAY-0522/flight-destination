@@ -2,7 +2,7 @@
 
 **面向吉隆坡出发旅客的东南亚航线价格分析项目。** 通过微信小程序与移动端网页，探索公开报价样本中的价格分布、出行日期和航线差异。
 
-[在线体验](https://may-flight-trends.spicytern512.chatgpt.site) · [快速运行](docs/GETTING-STARTED.md) · [架构与实现](docs/ARCHITECTURE.md) · [数据说明](docs/DATA.md) · [MIT 许可证](LICENSE)
+[在线体验](https://may-flight-trends.spicytern512.chatgpt.site) · [快速运行](docs/GETTING-STARTED.md) · [架构与实现](docs/ARCHITECTURE.md) · [数据说明](docs/DATA.md) · [更新记录](CHANGELOG.md) · [MIT 许可证](LICENSE)
 
 > 招聘方快速浏览：打开在线体验，切换单程/往返，搜索目的地，再进入价格分析页。网页版采用移动端布局，桌面浏览器也可直接打开。
 

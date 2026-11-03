@@ -61,8 +61,25 @@ view, text { box-sizing: border-box; }
 .bar-fill { height: 100%; border-radius: inherit; background: #77c9c5; }
 .lead-track { height: 10rpx; }
 .lead-fill { background: #77c9c5; }
-.holiday-card { display: flex; align-items: flex-start; gap: 15rpx; color: #788585; font-size: 22rpx; line-height: 1.6; }
-.holiday-icon { display: flex; flex: none; align-items: center; justify-content: center; width: 34rpx; height: 34rpx; border-radius: 50%; color: #159fa0; background: #e2f4f3; font-size: 21rpx; font-weight: 700; }
+.holiday-card { padding: 24rpx 24rpx 22rpx; }
+.holiday-status { display: inline-flex; align-items: center; min-height: 42rpx; padding: 7rpx 14rpx; border-radius: 999rpx; color: #137f7e; background: #e3f5f3; font-size: 20rpx; line-height: 1.3; font-weight: 700; }
+.holiday-status.up { color: #b66b22; background: #fff2df; }
+.holiday-status.down { color: #137f7e; background: #e3f5f3; }
+.holiday-status.neutral { color: #788585; background: #f1f4f3; }
+.holiday-comparison { display: flex; gap: 14rpx; margin-top: 18rpx; }
+.holiday-period { flex: 1; min-width: 0; padding: 17rpx 16rpx 15rpx; border: 1rpx solid #e7eeed; border-radius: 17rpx; background: #fbfcfc; }
+.holiday-period-festive { border-color: #d5eeeb; background: #f3faf9; }
+.holiday-period-title { color: #788585; font-size: 19rpx; line-height: 1.35; }
+.holiday-price { margin-top: 7rpx; color: #253131; font-size: 29rpx; line-height: 1.2; font-weight: 750; white-space: nowrap; }
+.holiday-period-festive .holiday-price { color: #137f7e; }
+.holiday-price text { font-size: 20rpx; }
+.holiday-count { margin-top: 6rpx; color: #9ca6a6; font-size: 17rpx; line-height: 1.3; }
+.holiday-track { height: 9rpx; margin-top: 13rpx; overflow: hidden; border-radius: 99rpx; background: #e9efee; }
+.holiday-bar { height: 100%; border-radius: inherit; }
+.festive-bar { background: #edaa59; }
+.usual-bar { background: #77c9c5; }
+.holiday-note { margin-top: 15rpx; color: #53645c; font-size: 20rpx; line-height: 1.45; }
+.holiday-method { margin-top: 8rpx; color: #a0aaaa; font-size: 17rpx; line-height: 1.4; }
 .sample-card { margin-top: 34rpx; }
 .sample-title { color: #253131; font-size: 26rpx; font-weight: 700; }
 .sample-stats { display: flex; justify-content: space-between; margin: 24rpx 0 20rpx; }
